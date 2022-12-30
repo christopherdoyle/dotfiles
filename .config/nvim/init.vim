@@ -28,3 +28,10 @@ set hlsearch incsearch ignorecase smartcase
 
 set lazyredraw
 
+set colorcolumn=80,120
+
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
