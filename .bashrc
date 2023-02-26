@@ -112,9 +112,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
-eval "$(register-python-argcomplete pipx)"
+if command -v register-python-argcomplete &> /dev/null; then
+    eval "$(register-python-argcomplete pipx)"
+elif command -v register-python-argcomplete3 &> /dev/null; then
+    eval "$(register-python-argcomplete3 pipx)"
+fi
+
 . ~/scripts/git-completion.bash
 
-
 export PATH="$PATH:/opt/mssql-tools/bin"
-. "$HOME/.cargo/env"
+
+if [ -f ~/.cargo/env ]; then
+    . "~/.cargo/env"
+fi
